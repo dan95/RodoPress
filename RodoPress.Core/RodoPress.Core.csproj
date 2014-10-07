@@ -11,6 +11,8 @@
     <AssemblyName>RodoPress.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,17 +50,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Entidades\Cliente.cs" />
-    <Compile Include="Dominio\Entidades\Funcionario.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Usuarios\ClienteMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Usuarios\FuncionarioMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Veiculos\MarcaMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Veiculos\ModeloMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Veiculos\VeiculoMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Viagens\PassagemMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Viagens\ViagemMapeamento.cs" />
+    <Compile Include="Dominio\Entidades\Usuarios\Cliente.cs" />
+    <Compile Include="Dominio\Entidades\Usuarios\Funcionario.cs" />
+    <Compile Include="Dominio\Entidades\Veiculos\Marca.cs" />
+    <Compile Include="Dominio\Entidades\Veiculos\Modelo.cs" />
+    <Compile Include="Dominio\Entidades\Veiculos\Veiculo.cs" />
+    <Compile Include="Dominio\Entidades\Viagens\Passagem.cs" />
+    <Compile Include="Dominio\Entidades\Usuarios\Usuario.cs" />
+    <Compile Include="Dominio\Entidades\Viagens\Reserva.cs" />
+    <Compile Include="Dominio\Entidades\Viagens\Viagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dominio\Dados\" />
+    <Folder Include="Dominio\Dados\Contrato\" />
+    <Folder Include="Dominio\Dados\Repositorio\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

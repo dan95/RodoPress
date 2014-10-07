@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace RodoPress.Core.Dominio.Entidades
 {
-    public class Funcionario
+    public class Marca
     {
-        public int Matricula { get; set; }
+        public virtual int Id { get; set; }
+        public virtual String Nome { get; set; }
     }
 }
