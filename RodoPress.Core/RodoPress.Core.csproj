@@ -50,15 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Dados\Contrato\IClienteRepository.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Usuarios\ClienteMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Usuarios\FuncionarioMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Usuarios\UsuarioMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Veiculos\MarcaMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Veiculos\ModeloMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Veiculos\VeiculoMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Viagens\PassagemMapeamento.cs" />
+    <Compile Include="Dominio\Dados\Mapeamento\Viagens\ReservaMapeamento.cs" />
     <Compile Include="Dominio\Dados\Mapeamento\Viagens\ViagemMapeamento.cs" />
     <Compile Include="Dominio\Entidades\Usuarios\Cliente.cs" />
     <Compile Include="Dominio\Entidades\Usuarios\Funcionario.cs" />
+    <Compile Include="Dominio\Entidades\Usuarios\Pessoa.cs" />
     <Compile Include="Dominio\Entidades\Veiculos\Marca.cs" />
     <Compile Include="Dominio\Entidades\Veiculos\Modelo.cs" />
     <Compile Include="Dominio\Entidades\Veiculos\Veiculo.cs" />
@@ -69,7 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dominio\Dados\Contrato\" />
     <Folder Include="Dominio\Dados\Repositorio\" />
   </ItemGroup>
   <ItemGroup>

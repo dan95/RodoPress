@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace RodoPress.Core.Dominio.Entidades.Usuarios
 {
-    public class Funcionario:Usuario
+    public class Funcionario: Pessoa
     {
         public virtual int Matricula { get; set; }
         public virtual String Cargo { get; set; }
         public virtual String Departamento { get; set; }
         public virtual Double Salario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
